@@ -1,0 +1,235 @@
+{
+  "backend": "realmd",
+  "library_path": "/usr/lib/python3/dist-packages/pardus_domain_joiner/domain_operations.py",
+  "library_sha256": "2452314961e04933cd8f5db750fe42e8563edd7bfcc90492dff9df87b494031c",
+  "error": "Organizational Unit format is not correct.",
+  "before": {
+    "files": {
+      "/etc/hostname": {
+        "sha256": "3bc3c60adf429326f4dae4f7d999a2307d6b20c2dc0c9f90d3a87a4007b21d0e",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/hosts": {
+        "sha256": "3840f3563b7d7e36b68b4d2d19b136eadbe4559bca9e4c05513a7ebbe0290f16",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/nsswitch.conf": {
+        "sha256": "a6a31de56076646d9f708933abfa4a396821ee917a98f8b6e26d69137f64d2b6",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/krb5.conf": {
+        "sha256": "53ddbfd4f09894e2ec09c08034df7a65f2c44fac01be4d7356f5efdfe19a5afa",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/krb5.conf.old": null,
+      "/etc/sssd/sssd.conf": null,
+      "/etc/samba/smb.conf": {
+        "sha256": "6e3a6c21429f8db5dcb2be6d7c069bc67bb5e8d0e21c435cce200e048e868de1",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-account": {
+        "sha256": "2628c1632889dd265f6a4201932ef5c1220575dc1f310db905f30bb63692d86a",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-auth": {
+        "sha256": "6cf77042e2043c9a33273e75553f4933c10274d6f6ec091e3377f9aeff0f8554",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-password": {
+        "sha256": "14132f90e89b8959d551df24b2e56c323ac22a826da8d11f151850801eccebc8",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-session": {
+        "sha256": "36089be68fff6dc91a7bad958af4f46892fe4d48d2465b33f22b7b5371625ce5",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-session-noninteractive": {
+        "sha256": "9c3fb3b546476c2317ec1fb7c5406f324a6bf0c34defed0cc2146404abd6e294",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/account": {
+        "sha256": "195aecfb9d73331856c598c0a27b8e26fd3df60608cc19c9b176859ef06f0a71",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/auth": {
+        "sha256": "dfd816e9252c69f3f432a764c36c20ba5fda789bb1a280605e62c9036f5b8569",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/password": {
+        "sha256": "99cd78ef18520ccc79884347f0def494e5ed66ecfe425c4cb93c903e83debd53",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/seen": {
+        "sha256": "d644ee2a4987a75c93106dfe7f5bfc618683cc91cacbd05949676f2b98f7dc94",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/session": {
+        "sha256": "ae391ba46ab5e8dea7aafd9217c1584e876d646fb08c2da1228274a198ba4ce9",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/session-noninteractive": {
+        "sha256": "297fb8117c1bbbcda0c5cd79e7d352d1d677b146a4d289c58411c17c8fe6d069",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      }
+    },
+    "services": {
+      "sssd": {
+        "enabled": "disabled",
+        "active": "inactive"
+      },
+      "winbind": {
+        "enabled": "enabled",
+        "active": "inactive"
+      }
+    },
+    "hostname": "pardus-domain-lab"
+  },
+  "after": {
+    "files": {
+      "/etc/hostname": {
+        "sha256": "3bc3c60adf429326f4dae4f7d999a2307d6b20c2dc0c9f90d3a87a4007b21d0e",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/hosts": {
+        "sha256": "3840f3563b7d7e36b68b4d2d19b136eadbe4559bca9e4c05513a7ebbe0290f16",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/nsswitch.conf": {
+        "sha256": "a6a31de56076646d9f708933abfa4a396821ee917a98f8b6e26d69137f64d2b6",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/krb5.conf": {
+        "sha256": "53ddbfd4f09894e2ec09c08034df7a65f2c44fac01be4d7356f5efdfe19a5afa",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/krb5.conf.old": null,
+      "/etc/sssd/sssd.conf": null,
+      "/etc/samba/smb.conf": {
+        "sha256": "6e3a6c21429f8db5dcb2be6d7c069bc67bb5e8d0e21c435cce200e048e868de1",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-account": {
+        "sha256": "2628c1632889dd265f6a4201932ef5c1220575dc1f310db905f30bb63692d86a",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-auth": {
+        "sha256": "6cf77042e2043c9a33273e75553f4933c10274d6f6ec091e3377f9aeff0f8554",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-password": {
+        "sha256": "14132f90e89b8959d551df24b2e56c323ac22a826da8d11f151850801eccebc8",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-session": {
+        "sha256": "36089be68fff6dc91a7bad958af4f46892fe4d48d2465b33f22b7b5371625ce5",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/etc/pam.d/common-session-noninteractive": {
+        "sha256": "9c3fb3b546476c2317ec1fb7c5406f324a6bf0c34defed0cc2146404abd6e294",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/account": {
+        "sha256": "195aecfb9d73331856c598c0a27b8e26fd3df60608cc19c9b176859ef06f0a71",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/auth": {
+        "sha256": "dfd816e9252c69f3f432a764c36c20ba5fda789bb1a280605e62c9036f5b8569",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/password": {
+        "sha256": "99cd78ef18520ccc79884347f0def494e5ed66ecfe425c4cb93c903e83debd53",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/seen": {
+        "sha256": "d644ee2a4987a75c93106dfe7f5bfc618683cc91cacbd05949676f2b98f7dc94",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/session": {
+        "sha256": "ae391ba46ab5e8dea7aafd9217c1584e876d646fb08c2da1228274a198ba4ce9",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      },
+      "/var/lib/pam/session-noninteractive": {
+        "sha256": "297fb8117c1bbbcda0c5cd79e7d352d1d677b146a4d289c58411c17c8fe6d069",
+        "mode": "0o644",
+        "uid": 0,
+        "gid": 0
+      }
+    },
+    "services": {
+      "sssd": {
+        "enabled": "disabled",
+        "active": "inactive"
+      },
+      "winbind": {
+        "enabled": "enabled",
+        "active": "inactive"
+      }
+    },
+    "hostname": "pardus-domain-lab"
+  },
+  "changed_files": [],
+  "services_changed": false,
+  "preserved": true
+}

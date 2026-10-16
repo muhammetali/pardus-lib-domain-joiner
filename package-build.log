@@ -1,0 +1,116 @@
+dpkg-buildpackage: info: source package pardus-lib-domain-joiner
+dpkg-buildpackage: info: source version 0.2.8
+dpkg-buildpackage: info: source distribution yirmiuc
+dpkg-buildpackage: info: source changed by Büşra ÇAĞLIYAN <busra.cagliyan@pardus.org.tr>
+dpkg-buildpackage: info: host architecture amd64
+ dpkg-source --before-build .
+ debian/rules clean
+dh clean --buildsystem=meson
+   dh_auto_clean -O--buildsystem=meson
+   dh_autoreconf_clean -O--buildsystem=meson
+   dh_clean -O--buildsystem=meson
+ debian/rules binary
+dh binary --buildsystem=meson
+   dh_update_autotools_config -O--buildsystem=meson
+   dh_autoreconf -O--buildsystem=meson
+   dh_auto_configure -O--buildsystem=meson
+	cd obj-x86_64-linux-gnu && DEB_PYTHON_INSTALL_LAYOUT=deb LC_ALL=C.UTF-8 meson setup .. --wrap-mode=nodownload --buildtype=plain --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=lib/x86_64-linux-gnu -Dpython.bytecompile=-1
+The Meson build system
+Version: 1.7.0
+Source dir: /home/pardus/domain-validation/src
+Build dir: /home/pardus/domain-validation/src/obj-x86_64-linux-gnu
+Build type: native build
+Project name: pardus-lib-domain-joiner
+Project version: 0.1.0
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Program python3 found: YES (/usr/bin/python3)
+Program msgfmt found: YES (/usr/bin/msgfmt)
+Program msginit found: YES (/usr/bin/msginit)
+Program msgmerge found: YES (/usr/bin/msgmerge)
+Program xgettext found: YES (/usr/bin/xgettext)
+Build targets in project: 5
+
+pardus-lib-domain-joiner 0.1.0
+
+  User defined options
+    buildtype         : plain
+    libdir            : lib/x86_64-linux-gnu
+    localstatedir     : /var
+    prefix            : /usr
+    python.bytecompile: -1
+    sysconfdir        : /etc
+    wrap_mode         : nodownload
+
+Found ninja-1.12.1 at /usr/bin/ninja
+Generating targets:   0%|          | 0/5 eta ?                                              Writing build.ninja:   0%|          | 0/33 eta ?                                                   dh_auto_build -O--buildsystem=meson
+	cd obj-x86_64-linux-gnu && LC_ALL=C.UTF-8 ninja -j2 -v
+[1/2] /usr/bin/msgfmt -o po/tr/LC_MESSAGES/pardus-lib-domain-joiner.mo ../po/tr.po
+[2/2] /usr/bin/msgfmt -o po/pt/LC_MESSAGES/pardus-lib-domain-joiner.mo ../po/pt.po
+   dh_auto_test -O--buildsystem=meson
+	cd obj-x86_64-linux-gnu && DEB_PYTHON_INSTALL_LAYOUT=deb LC_ALL=C.UTF-8 MESON_TESTTHREADS=2 meson test --verbose
+ninja: Entering directory `/home/pardus/domain-validation/src/obj-x86_64-linux-gnu'
+ninja: no work to do.
+1/1 join-validation RUNNING       
+>>> ASAN_OPTIONS=halt_on_error=1:abort_on_error=1:print_summary=1 MSAN_OPTIONS=halt_on_error=1:abort_on_error=1:print_summary=1:print_stacktrace=1 LANG=C.UTF-8 UBSAN_OPTIONS=halt_on_error=1:abort_on_error=1:print_summary=1:print_stacktrace=1 MESON_TEST_ITERATION=1 MALLOC_PERTURB_=254 /usr/bin/python3 -m unittest discover -s /home/pardus/domain-validation/src/tests -v
+――――――――――――――――――――――――――――――――――――― ✀  ―――――――――――――――――――――――――――――――――――――
+test_backend_process_failure_keeps_existing_error (test_join_validation.JoinValidationTests.test_backend_process_failure_keeps_existing_error) ... ok
+test_direct_handlers_reject_invalid_ou_before_discovery (test_join_validation.JoinValidationTests.test_direct_handlers_reject_invalid_ou_before_discovery) ... ok
+test_invalid_ou_is_rejected_before_services_pam_or_backend (test_join_validation.JoinValidationTests.test_invalid_ou_is_rejected_before_services_pam_or_backend) ... ok
+test_missing_method_keeps_existing_error_without_side_effects (test_join_validation.JoinValidationTests.test_missing_method_keeps_existing_error_without_side_effects) ... ok
+test_valid_and_default_ou_keep_backend_arguments_and_result (test_join_validation.JoinValidationTests.test_valid_and_default_ou_keep_backend_arguments_and_result) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.006s
+
+OK
+――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+1/1 join-validation OK              0.12s
+
+
+Ok:                 1   
+Expected Fail:      0   
+Fail:               0   
+Unexpected Pass:    0   
+Skipped:            0   
+Timeout:            0   
+
+Full log written to /home/pardus/domain-validation/src/obj-x86_64-linux-gnu/meson-logs/testlog.txt
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot -O--buildsystem=meson
+   dh_prep -O--buildsystem=meson
+   dh_auto_install --destdir=debian/pardus-lib-domain-joiner/ -O--buildsystem=meson
+	cd obj-x86_64-linux-gnu && DESTDIR=/home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner LC_ALL=C.UTF-8 ninja install
+[0/1] Installing files
+Installing po/tr/LC_MESSAGES/pardus-lib-domain-joiner.mo to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/share/locale/tr/LC_MESSAGES
+Installing po/pt/LC_MESSAGES/pardus-lib-domain-joiner.mo to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/share/locale/pt/LC_MESSAGES
+Installing /home/pardus/domain-validation/src/src/__init__.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/config_manager.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/domain_joiner_ldap.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/domain_joiner_realmd.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/domain_joiner_winbind.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/domain_operations.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/update_krb5_config.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/src/logger.py to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/lib/python3/dist-packages/pardus_domain_joiner
+Installing /home/pardus/domain-validation/src/data/pardus-pam-config to /home/pardus/domain-validation/src/debian/pardus-lib-domain-joiner/usr/share/pam-configs
+   dh_installdocs -O--buildsystem=meson
+   dh_installchangelogs -O--buildsystem=meson
+   dh_installsystemduser -O--buildsystem=meson
+   dh_perl -O--buildsystem=meson
+   dh_link -O--buildsystem=meson
+   dh_strip_nondeterminism -O--buildsystem=meson
+	Normalized debian/pardus-lib-domain-joiner/usr/share/locale/tr/LC_MESSAGES/pardus-lib-domain-joiner.mo
+	Normalized debian/pardus-lib-domain-joiner/usr/share/locale/pt/LC_MESSAGES/pardus-lib-domain-joiner.mo
+   dh_compress -O--buildsystem=meson
+   dh_fixperms -O--buildsystem=meson
+   dh_missing -O--buildsystem=meson
+   dh_installdeb -O--buildsystem=meson
+   dh_gencontrol -O--buildsystem=meson
+   dh_md5sums -O--buildsystem=meson
+   dh_builddeb -O--buildsystem=meson
+dpkg-deb: building package 'pardus-lib-domain-joiner' in '../pardus-lib-domain-joiner_0.2.8_all.deb'.
+ dpkg-genbuildinfo --build=binary -O../pardus-lib-domain-joiner_0.2.8_amd64.buildinfo
+ dpkg-genchanges --build=binary -O../pardus-lib-domain-joiner_0.2.8_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

@@ -1,0 +1,60 @@
+pardus-domain-lab
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable sssd
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable winbind
+Removed '/etc/systemd/system/multi-user.target.wants/winbind.service'.
+Removed '/etc/systemd/system/multi-user.target.wants/sssd.service'.
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable sssd
+Created symlink '/etc/systemd/system/multi-user.target.wants/sssd.service' → '/usr/lib/systemd/system/sssd.service'.
+[2026-10-16 13:26:35] [domain_operations] [INFO] STEP===Starting winbind service...
+[2026-10-16 13:26:35] [config_manager] [INFO] Starting winbind service...
+[2026-10-16 13:26:37] [domain_operations] [INFO] STEP===Discovering the domain...
+[2026-10-16 13:26:37] [domain_operations] [ERROR] Domain not found: 'missing.pdj.invalid'
+[2026-10-16 13:26:37] [config_manager] [WARNING] No backup found for hostname.
+{
+  "backend": "winbind",
+  "error": "Domain not found: 'missing.pdj.invalid'",
+  "changed_files": [
+    "/etc/pam.d/common-account",
+    "/etc/pam.d/common-auth",
+    "/etc/pam.d/common-password",
+    "/etc/pam.d/common-session",
+    "/var/lib/pam/account",
+    "/var/lib/pam/auth",
+    "/var/lib/pam/password",
+    "/var/lib/pam/session"
+  ],
+  "services_changed": true,
+  "preserved": false
+}
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable sssd
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable winbind
+Removed '/etc/systemd/system/multi-user.target.wants/winbind.service'.
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable winbind
+Created symlink '/etc/systemd/system/multi-user.target.wants/winbind.service' → '/usr/lib/systemd/system/winbind.service'.
+[2026-10-16 13:26:40] [domain_operations] [INFO] STEP===Starting sssd service...
+[2026-10-16 13:26:40] [config_manager] [INFO] Starting sssd service...
+[2026-10-16 13:26:42] [domain_operations] [INFO] STEP===Discovering the domain...
+[2026-10-16 13:26:42] [domain_operations] [ERROR] Domain not found: 'missing.pdj.invalid'
+[2026-10-16 13:26:42] [config_manager] [WARNING] No backup found for hostname.
+{
+  "backend": "realmd",
+  "error": "Domain not found: 'missing.pdj.invalid'",
+  "changed_files": [
+    "/etc/pam.d/common-account",
+    "/etc/pam.d/common-auth",
+    "/etc/pam.d/common-password",
+    "/etc/pam.d/common-session",
+    "/var/lib/pam/account",
+    "/var/lib/pam/auth",
+    "/var/lib/pam/password",
+    "/var/lib/pam/session"
+  ],
+  "services_changed": true,
+  "preserved": false
+}

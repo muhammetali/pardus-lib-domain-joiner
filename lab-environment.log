@@ -1,0 +1,18 @@
+pardus-domain-lab
+PRETTY_NAME="Pardus GNU/Linux 25 (yirmibes)"
+NAME="Pardus GNU/Linux"
+VERSION_ID="25.2"
+VERSION="25.2 (yirmibes)"
+VERSION_CODENAME=yirmibes
+DEBIAN_VERSION_FULL=13.7
+ID=pardus
+HOME_URL="https://www.pardus.org.tr/"
+SUPPORT_URL="https://forum.pardus.org.tr/"
+BUG_REPORT_URL="https://talep.pardus.org.tr/"
+ID_LIKE=debian
+PARDUS_CODENAME=yirmibes
+meson	1.7.0-1
+pardus-domain-joiner	0.5.5
+pardus-lib-domain-joiner	0.2.8
+python3	3.13.5-1
+6196acc44cfb580247adddf68f8a1ea8e3979fe809475709b6f5738a261536d6  /usr/lib/python3/dist-packages/pardus_domain_joiner/domain_operations.py

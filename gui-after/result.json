@@ -1,0 +1,10 @@
+{
+  "page": "joining",
+  "title": "Katılma Başarısız",
+  "log": "\nSTEP===Organizational Unit format check...\nOrganizasyon Birim formatı doğru değil.",
+  "backend": "sssd",
+  "ou": "computers",
+  "domain": "missing.pdj.invalid",
+  "actions_path": "/usr/share/pardus/pardus-domain-joiner/src/Actions.py",
+  "scope": "Installed full GUI, real privileged helper, deliberately nonexistent .invalid domain; no AD membership."
+}

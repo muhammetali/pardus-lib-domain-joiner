@@ -1,0 +1,10 @@
+test_backend_process_failure_keeps_existing_error (test_join_validation.JoinValidationTests.test_backend_process_failure_keeps_existing_error) ... ok
+test_direct_handlers_reject_invalid_ou_before_discovery (test_join_validation.JoinValidationTests.test_direct_handlers_reject_invalid_ou_before_discovery) ... ok
+test_invalid_ou_is_rejected_before_services_pam_or_backend (test_join_validation.JoinValidationTests.test_invalid_ou_is_rejected_before_services_pam_or_backend) ... ok
+test_missing_method_keeps_existing_error_without_side_effects (test_join_validation.JoinValidationTests.test_missing_method_keeps_existing_error_without_side_effects) ... ok
+test_valid_and_default_ou_keep_backend_arguments_and_result (test_join_validation.JoinValidationTests.test_valid_and_default_ou_keep_backend_arguments_and_result) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+OK

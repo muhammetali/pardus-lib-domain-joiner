@@ -1,0 +1,40 @@
+(Reading database ... 181845 files and directories currently installed.)
+Preparing to unpack .../pardus-lib-domain-joiner_0.2.8_all.deb ...
+Unpacking pardus-lib-domain-joiner (0.2.8) over (0.2.8) ...
+Setting up pardus-lib-domain-joiner (0.2.8) ...
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable sssd
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable winbind
+Removed '/etc/systemd/system/multi-user.target.wants/sssd.service'.
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable sssd
+Created symlink '/etc/systemd/system/multi-user.target.wants/sssd.service' → '/usr/lib/systemd/system/sssd.service'.
+[2026-10-16 13:29:32] [domain_operations] [INFO] STEP===Organizational Unit format check...
+[2026-10-16 13:29:32] [domain_operations] [ERROR] Organizational Unit format is not correct.
+[2026-10-16 13:29:32] [domain_operations] [INFO] Example: OU=Users,DC=example,DC=com
+{
+  "backend": "winbind",
+  "error": "Organizational Unit format is not correct.",
+  "changed_files": [],
+  "services_changed": false,
+  "preserved": true
+}
+Synchronizing state of sssd.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable sssd
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable winbind
+Removed '/etc/systemd/system/multi-user.target.wants/sssd.service'.
+Synchronizing state of winbind.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable winbind
+Created symlink '/etc/systemd/system/multi-user.target.wants/winbind.service' → '/usr/lib/systemd/system/winbind.service'.
+[2026-10-16 13:29:34] [domain_operations] [INFO] STEP===Organizational Unit format check...
+[2026-10-16 13:29:34] [domain_operations] [ERROR] Organizational Unit format is not correct.
+[2026-10-16 13:29:34] [domain_operations] [INFO] Example: OU=Users,DC=example,DC=com
+{
+  "backend": "realmd",
+  "error": "Organizational Unit format is not correct.",
+  "changed_files": [],
+  "services_changed": false,
+  "preserved": true
+}
