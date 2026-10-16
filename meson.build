@@ -6,6 +6,13 @@ project(
 
 py = import('python').find_installation()
 
+test(
+  'join-validation',
+  py,
+  args: ['-m', 'unittest', 'discover', '-s', meson.current_source_dir() / 'tests', '-v'],
+  env: ['LANG=C.UTF-8'],
+)
+
 # Install Python source files
 py.install_sources(
   [

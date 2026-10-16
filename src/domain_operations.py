@@ -76,6 +76,16 @@ def format_ou(ouaddress):
 
     return re.match(pattern, ouaddress) is not None
 
+
+def validate_ou(ouaddress):
+    """Return an error for an invalid explicit OU without changing the system."""
+    if ouaddress and not format_ou(ouaddress):
+        logger.error(_("Organizational Unit format is not correct."))
+        logger.info(_("Example: OU=Users,DC=example,DC=com"))
+        return _("Organizational Unit format is not correct.")
+    return ""
+
+
 def log_process_output(process, prefix=""):
     if process.stdout:
         logger.info("%s stdout: %s", prefix, process.stdout.strip())
@@ -85,6 +95,10 @@ def log_process_output(process, prefix=""):
 
 
 def handle_realmd_join(comp_name, domain, user, passwd, ouaddress):
+    error = validate_ou(ouaddress)
+    if error:
+        return error
+
     restore_files = {"krb5": "/etc/krb5.conf", "sssd": "/etc/sssd/sssd.conf"}
 
     #print("STEP===Discovering the domain...", flush=True)
@@ -113,16 +127,6 @@ def handle_realmd_join(comp_name, domain, user, passwd, ouaddress):
     # If there is a sssd file, take a backup.
     sssd_file = "/etc/sssd/sssd.conf"
     config_manager.backup_config_file(sssd_file, "sssd")
-
-    #print("STEP===Organizational Unit format check...", flush=True)
-    logger.info("STEP===Organizational Unit format check...")
-
-    if ouaddress and not format_ou(ouaddress):
-        #print(_("Organizational Unit format is not correct."))
-        #print(_("Example: OU=Users,DC=example,DC=com"))
-        logger.error(_("Organizational Unit format is not correct."))
-        logger.info(_("Example: OU=Users,DC=example,DC=com"))
-        return fail_and_return(_("Organizational Unit format is not correct."))
 
     #print("STEP===Joining the domain with sssd...", flush=True)
     logger.info("STEP===Joining the domain with sssd...")
@@ -169,6 +173,10 @@ def handle_realmd_join(comp_name, domain, user, passwd, ouaddress):
 
 
 def handle_winbind_join(comp_name, domain, user, passwd, ouaddress, workgroup):
+    error = validate_ou(ouaddress)
+    if error:
+        return error
+
     restore_files = {
         "krb5": "/etc/krb5.conf",
         "samba-winbind": "/etc/samba/smb.conf",
@@ -207,16 +215,6 @@ def handle_winbind_join(comp_name, domain, user, passwd, ouaddress, workgroup):
     config_manager.update_nsswitch_conf()
     config_manager.update_hostname_file(comp_name, domain)
     config_manager.update_hosts_file(comp_name, domain)
-
-    #print("STEP===Organizational Unit format check...", flush=True)
-    logger.info("STEP===Organizational Unit format check...")
-
-    if ouaddress and not format_ou(ouaddress):
-        #print(_("Organizational Unit format is not correct."))
-        #print(_("Example: OU=Users,DC=example,DC=com"))
-        logger.error(_("Organizational Unit format is not correct."))
-        logger.info(_("Example: OU=Users,DC=example,DC=com"))
-        return fail_and_return(_("Organizational Unit format is not correct."))
 
     #print("STEP===Joining the domain with winbind...", flush=True)
     logger.info("STEP===Joining the domain with winbind...")
@@ -282,6 +280,13 @@ def join(
     winbind=None,
 ):
     try:
+        # GUI and CLI callers must be validated before services or PAM change.
+        if realmd or winbind:
+            logger.info("STEP===Organizational Unit format check...")
+            error = validate_ou(ouaddress)
+            if error:
+                return error
+
         # ouaddress = check_ouaddress(ouaddress, domain)
         if realmd:
             #print("STEP===Starting sssd service...", flush=True)
